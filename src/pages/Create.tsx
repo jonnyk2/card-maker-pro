@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Card } from "@/types";
 import DraggableField from "@/components/editor/DraggableField";
@@ -6,7 +5,7 @@ import FieldPropertyEditor from "@/components/editor/FieldPropertyEditor";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Plus, Save, Text, Image, Deck } from "lucide-react";
+import { Plus, Save, Text, Image, Cards } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { v4 as uuidv4 } from "uuid";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -95,7 +94,6 @@ export default function Create() {
     });
   };
 
-  // Card type options based on selected game type
   const getCardTypeOptions = () => {
     switch (gameType) {
       case "trading":
@@ -120,7 +118,6 @@ export default function Create() {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          {/* Card Editor */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
@@ -181,7 +178,6 @@ export default function Create() {
               </div>
             </div>
             
-            {/* Card Canvas */}
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border bg-gradient-to-br from-theme-purple-dark to-theme-purple-muted">
               <div className="absolute inset-0 p-3">
                 <div className="w-full h-full relative rounded bg-theme-purple-dark/70">
@@ -198,7 +194,6 @@ export default function Create() {
               </div>
             </div>
             
-            {/* Add Field Buttons */}
             <div className="flex items-center space-x-2">
               <Button
                 variant="outline"
@@ -222,7 +217,6 @@ export default function Create() {
             </div>
           </div>
           
-          {/* Game Collection Info */}
           <div className="space-y-3">
             <h2 className="text-lg font-medium">Game Collection</h2>
             <div className="space-y-3">
@@ -265,7 +259,6 @@ export default function Create() {
           </div>
         </div>
         
-        {/* Field Properties Panel */}
         <div>
           <div className="sticky top-20">
             <h2 className="text-lg font-medium mb-3">Field Properties</h2>
@@ -277,7 +270,7 @@ export default function Create() {
             ) : (
               <div className="border border-border rounded-md p-6 bg-card/60 text-center">
                 <div className="mb-3 opacity-60">
-                  <Deck className="w-8 h-8 mx-auto" />
+                  <Cards className="w-8 h-8 mx-auto" />
                 </div>
                 <p className="text-muted-foreground mb-4">
                   No field selected. Add or select a field to edit its properties.

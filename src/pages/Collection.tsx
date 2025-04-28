@@ -24,6 +24,7 @@ export default function Collection() {
           id: "1",
           name: "Vocabulary Cards",
           description: "English vocabulary cards with definitions and examples",
+          gameType: "trading", // Added missing gameType
           cardCount: 42,
           createdAt: "2025-03-10T12:00:00Z",
           updatedAt: "2025-04-25T15:30:00Z",
@@ -126,6 +127,7 @@ export default function Collection() {
           id: "2",
           name: "Biology Flashcards",
           description: "Study cards for biology exam covering cells, genetics, and ecology",
+          gameType: "standard", // Added missing gameType
           cardCount: 86,
           createdAt: "2025-02-15T09:15:00Z",
           updatedAt: "2025-04-22T11:45:00Z",

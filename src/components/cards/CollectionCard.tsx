@@ -3,7 +3,7 @@ import { CardCollection } from "@/types";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Deck, Play } from "lucide-react";
+import { Cards, Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface CollectionCardProps {
@@ -46,7 +46,7 @@ export default function CollectionCard({ collection }: CollectionCardProps) {
           className="w-full border-muted hover:bg-primary/20 hover:text-primary"
           onClick={() => navigate(`/collection/${collection.id}`)}
         >
-          <Deck className="w-4 h-4 mr-2" />
+          <Cards className="w-4 h-4 mr-2" />
           View Cards
         </Button>
         <Button 
