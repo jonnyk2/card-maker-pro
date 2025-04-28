@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import EmptyState from "@/components/cards/EmptyState";
 import CollectionCard from "@/components/cards/CollectionCard";
@@ -152,3 +153,4 @@ export default function Index() {
     </div>
   );
 }
+
