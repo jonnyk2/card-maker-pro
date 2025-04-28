@@ -24,7 +24,7 @@ export default function Header() {
             onClick={() => navigate('/')} 
             className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent cursor-pointer"
           >
-            ChromaCardForge
+            Card Maker Pro
           </h1>
         </div>
         

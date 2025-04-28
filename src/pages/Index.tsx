@@ -56,7 +56,7 @@ export default function Index() {
         <div className="container px-4 md:px-6 z-10">
           <div className="max-w-3xl space-y-6 animate-fade-in">
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent drop-shadow-sm">
-              ChromaCard Forge
+              Card Maker Pro
             </h1>
             <p className="text-2xl md:text-3xl text-muted-foreground max-w-2xl">
               Create, customize, and play your own trading card games from fantasy realms to sci-fi universes
@@ -153,3 +153,4 @@ export default function Index() {
     </div>
   );
 }
+
