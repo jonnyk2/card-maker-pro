@@ -18,16 +18,19 @@ export default function Index() {
       setCollections([
         {
           id: "1",
-          name: "Vocabulary Cards",
-          description: "English vocabulary cards with definitions and examples",
+          name: "Fantasy Battle Cards",
+          description: "A strategic card game with wizards, warriors, and mythical creatures",
+          gameType: "trading",
+          ruleset: "Each player starts with 5 cards. Winner is first to defeat opponent's hero card.",
           cardCount: 42,
           createdAt: "2025-03-10T12:00:00Z",
           updatedAt: "2025-04-25T15:30:00Z",
         },
         {
           id: "2",
-          name: "Biology Flashcards",
-          description: "Study cards for biology exam covering cells, genetics, and ecology",
+          name: "Space Explorers",
+          description: "Sci-fi themed card game with spaceships, planets and alien encounters",
+          gameType: "standard",
           cardCount: 86,
           createdAt: "2025-02-15T09:15:00Z",
           updatedAt: "2025-04-22T11:45:00Z",
@@ -40,13 +43,13 @@ export default function Index() {
   return (
     <div className="space-y-8 animate-fade-in">
       <div>
-        <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Card Collections</h1>
-        <p className="text-muted-foreground">Create, manage and customize your card decks</p>
+        <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Card Game Creator</h1>
+        <p className="text-muted-foreground">Design and build your own custom card games</p>
       </div>
       
       <Tabs defaultValue="all" className="w-full">
         <TabsList className="bg-muted/50">
-          <TabsTrigger value="all">All Collections</TabsTrigger>
+          <TabsTrigger value="all">All Games</TabsTrigger>
           <TabsTrigger value="recent">Recent</TabsTrigger>
           <TabsTrigger value="favorites">Favorites</TabsTrigger>
         </TabsList>
@@ -65,9 +68,9 @@ export default function Index() {
             </div>
           ) : (
             <EmptyState
-              title="No Collections Yet"
-              description="Create your first card collection or import from CSV/Excel to get started."
-              createButtonLabel="Create Collection"
+              title="No Card Games Yet"
+              description="Create your first card game or import from CSV/Excel to get started."
+              createButtonLabel="Create Card Game"
               createButtonAction={() => navigate('/create')}
               importButtonLabel="Import Cards"
               importButtonAction={() => navigate('/import')}
@@ -77,18 +80,18 @@ export default function Index() {
         
         <TabsContent value="recent">
           <EmptyState
-            title="No Recent Collections"
-            description="Your recently viewed collections will appear here."
-            createButtonLabel="Create Collection"
+            title="No Recent Card Games"
+            description="Your recently viewed card games will appear here."
+            createButtonLabel="Create Card Game"
             createButtonAction={() => navigate('/create')}
           />
         </TabsContent>
         
         <TabsContent value="favorites">
           <EmptyState
-            title="No Favorite Collections"
-            description="Mark collections as favorites to see them here."
-            createButtonLabel="Create Collection"
+            title="No Favorite Card Games"
+            description="Mark card games as favorites to see them here."
+            createButtonLabel="Create Card Game"
             createButtonAction={() => navigate('/create')}
           />
         </TabsContent>
