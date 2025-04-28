@@ -5,7 +5,7 @@ import FieldPropertyEditor from "@/components/editor/FieldPropertyEditor";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Plus, Save, Text, Image, Cards } from "lucide-react";
+import { Plus, Save, Text, Image, Library } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { v4 as uuidv4 } from "uuid";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -87,7 +87,6 @@ export default function Create() {
   };
   
   const handleSaveCard = () => {
-    // In a real app, this would save to Supabase
     toast({
       title: "Card Saved!",
       description: "Connect Supabase to enable saving cards.",
@@ -270,7 +269,7 @@ export default function Create() {
             ) : (
               <div className="border border-border rounded-md p-6 bg-card/60 text-center">
                 <div className="mb-3 opacity-60">
-                  <Cards className="w-8 h-8 mx-auto" />
+                  <Library className="w-8 h-8 mx-auto" />
                 </div>
                 <p className="text-muted-foreground mb-4">
                   No field selected. Add or select a field to edit its properties.
