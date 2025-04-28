@@ -1,9 +1,12 @@
+
 import { useEffect, useState } from "react";
 import EmptyState from "@/components/cards/EmptyState";
 import CollectionCard from "@/components/cards/CollectionCard";
 import { CardCollection } from "@/types";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Layout, Plus } from "lucide-react";
 
 export default function Index() {
   const navigate = useNavigate();
@@ -38,28 +41,65 @@ export default function Index() {
   }, []);
   
   return (
-    <div className="relative min-h-screen">
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
-          alt="Trading Card Games Background"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 to-background"></div>
+    <div className="relative">
+      {/* Hero Section with Background */}
+      <div className="relative h-[80vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="https://images.unsplash.com/photo-1500673922987-e212871fec22"
+            alt="Trading Card Games"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background"></div>
+        </div>
+        
+        <div className="container px-4 md:px-6 z-10">
+          <div className="max-w-3xl space-y-6 animate-fade-in">
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent drop-shadow-sm">
+              ChromaCard Forge
+            </h1>
+            <p className="text-2xl md:text-3xl text-muted-foreground max-w-2xl">
+              Create, customize, and play your own trading card games from fantasy realms to sci-fi universes
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button 
+                size="lg" 
+                className="text-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                onClick={() => navigate('/create')}
+              >
+                <Plus className="mr-2 h-5 w-5" />
+                Start Creating
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg border-muted hover:bg-primary/20 hover:text-primary"
+                onClick={() => navigate('/import')}
+              >
+                <Layout className="mr-2 h-5 w-5" />
+                Explore Samples
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <div className="space-y-8 animate-fade-in max-w-4xl mx-auto text-center py-16">
-        <div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            Create Epic Card Games
-          </h1>
+
+      {/* Features Section */}
+      <div className="bg-gradient-to-b from-background to-muted/30 py-20">
+        <div className="container px-4 md:px-6 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Unleash Your Creativity
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Design and build your own custom trading card games, from fantasy battles to sci-fi adventures
+            Design custom cards with our intuitive editor, build decks, and bring your game ideas to life
           </p>
         </div>
       </div>
 
+      {/* Collections Tab Section */}
       <div className="container px-4 md:px-6 space-y-8 pb-16">
+        <h2 className="text-3xl font-bold">Your Card Collections</h2>
+        
         <Tabs defaultValue="all" className="w-full">
           <TabsList className="bg-muted/50">
             <TabsTrigger value="all">All Games</TabsTrigger>
