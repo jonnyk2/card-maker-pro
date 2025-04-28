@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import EmptyState from "@/components/cards/EmptyState";
 import CollectionCard from "@/components/cards/CollectionCard";
@@ -7,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout, Plus } from "lucide-react";
+import { IMAGES } from "@/utils/imagePaths";
 
 export default function Index() {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export default function Index() {
       <div className="relative h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
-            src="https://images.unsplash.com/photo-1500673922987-e212871fec22"
+            src={IMAGES.backgrounds.hero}
             alt="Trading Card Games"
             className="w-full h-full object-cover"
           />
@@ -153,4 +153,3 @@ export default function Index() {
     </div>
   );
 }
-
