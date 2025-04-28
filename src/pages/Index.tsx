@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import EmptyState from "@/components/cards/EmptyState";
 import CollectionCard from "@/components/cards/CollectionCard";
@@ -11,9 +10,7 @@ export default function Index() {
   const [collections, setCollections] = useState<CardCollection[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  // Mock data loading
   useEffect(() => {
-    // In a real app, this would be a fetch from Supabase
     setTimeout(() => {
       setCollections([
         {
@@ -41,61 +38,78 @@ export default function Index() {
   }, []);
   
   return (
-    <div className="space-y-8 animate-fade-in">
-      <div>
-        <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Card Game Creator</h1>
-        <p className="text-muted-foreground">Design and build your own custom card games</p>
+    <div className="relative min-h-screen">
+      <div className="absolute inset-0 -z-10">
+        <img
+          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+          alt="Trading Card Games Background"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 to-background"></div>
       </div>
       
-      <Tabs defaultValue="all" className="w-full">
-        <TabsList className="bg-muted/50">
-          <TabsTrigger value="all">All Games</TabsTrigger>
-          <TabsTrigger value="recent">Recent</TabsTrigger>
-          <TabsTrigger value="favorites">Favorites</TabsTrigger>
-        </TabsList>
-        <TabsContent value="all" className="mt-6">
-          {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-52 animate-pulse rounded-lg bg-muted/50" />
-              ))}
-            </div>
-          ) : collections.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {collections.map((collection) => (
-                <CollectionCard key={collection.id} collection={collection} />
-              ))}
-            </div>
-          ) : (
+      <div className="space-y-8 animate-fade-in max-w-4xl mx-auto text-center py-16">
+        <div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Create Epic Card Games
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Design and build your own custom trading card games, from fantasy battles to sci-fi adventures
+          </p>
+        </div>
+      </div>
+
+      <div className="container px-4 md:px-6 space-y-8 pb-16">
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="bg-muted/50">
+            <TabsTrigger value="all">All Games</TabsTrigger>
+            <TabsTrigger value="recent">Recent</TabsTrigger>
+            <TabsTrigger value="favorites">Favorites</TabsTrigger>
+          </TabsList>
+          <TabsContent value="all" className="mt-6">
+            {isLoading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="h-52 animate-pulse rounded-lg bg-muted/50" />
+                ))}
+              </div>
+            ) : collections.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {collections.map((collection) => (
+                  <CollectionCard key={collection.id} collection={collection} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No Card Games Yet"
+                description="Create your first card game or import from CSV/Excel to get started."
+                createButtonLabel="Create Card Game"
+                createButtonAction={() => navigate('/create')}
+                importButtonLabel="Import Cards"
+                importButtonAction={() => navigate('/import')}
+              />
+            )}
+          </TabsContent>
+          
+          <TabsContent value="recent">
             <EmptyState
-              title="No Card Games Yet"
-              description="Create your first card game or import from CSV/Excel to get started."
+              title="No Recent Card Games"
+              description="Your recently viewed card games will appear here."
               createButtonLabel="Create Card Game"
               createButtonAction={() => navigate('/create')}
-              importButtonLabel="Import Cards"
-              importButtonAction={() => navigate('/import')}
             />
-          )}
-        </TabsContent>
-        
-        <TabsContent value="recent">
-          <EmptyState
-            title="No Recent Card Games"
-            description="Your recently viewed card games will appear here."
-            createButtonLabel="Create Card Game"
-            createButtonAction={() => navigate('/create')}
-          />
-        </TabsContent>
-        
-        <TabsContent value="favorites">
-          <EmptyState
-            title="No Favorite Card Games"
-            description="Mark card games as favorites to see them here."
-            createButtonLabel="Create Card Game"
-            createButtonAction={() => navigate('/create')}
-          />
-        </TabsContent>
-      </Tabs>
+          </TabsContent>
+          
+          <TabsContent value="favorites">
+            <EmptyState
+              title="No Favorite Card Games"
+              description="Mark card games as favorites to see them here."
+              createButtonLabel="Create Card Game"
+              createButtonAction={() => navigate('/create')}
+            />
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }
